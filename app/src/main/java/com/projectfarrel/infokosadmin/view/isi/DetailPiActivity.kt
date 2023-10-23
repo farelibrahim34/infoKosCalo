@@ -15,10 +15,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.projectfarrel.infokosadmin.R
 import com.projectfarrel.infokosadmin.adapter.ImageSliderAdapter
-import com.projectfarrel.infokosadmin.databinding.ActivityDetailBinding
 import com.projectfarrel.infokosadmin.databinding.ActivityDetailPiBinding
 import com.projectfarrel.infokosadmin.model.ImageData
 import com.projectfarrel.infokosadmin.view.HomeActivity
+import com.projectfarrel.infokosadmin.view.MapsActivity
 import com.projectfarrel.infokosadmin.viewmodel.ViewModelDataKos
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -104,8 +104,11 @@ class DetailPiActivity : AppCompatActivity() {
         binding.txtDesc.setText("Deskripsi  : "+desc)
 
         binding.imageView2.setOnClickListener {
-            val link = Intent(Intent.ACTION_VIEW, Uri.parse(linkMaps))
-            startActivity(link)
+//            val link = Intent(Intent.ACTION_VIEW, Uri.parse(linkMaps))
+//            startActivity(link)
+            val intent = Intent(this,MapsActivity::class.java)
+            intent.putExtra("linkMaps",linkMaps)
+            startActivity(intent)
         }
 
         binding.btnNomorHp.setOnClickListener {

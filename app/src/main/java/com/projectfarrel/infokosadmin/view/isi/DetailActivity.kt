@@ -21,6 +21,7 @@ import com.projectfarrel.infokosadmin.adapter.ImageSliderAdapter
 import com.projectfarrel.infokosadmin.databinding.ActivityDetailBinding
 import com.projectfarrel.infokosadmin.model.ImageData
 import com.projectfarrel.infokosadmin.view.HomeActivity
+import com.projectfarrel.infokosadmin.view.MapsActivity
 import com.projectfarrel.infokosadmin.viewmodel.ViewModelDataKos
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -88,8 +89,11 @@ class DetailActivity : AppCompatActivity() {
         binding.viewPagerHomeDetail
         binding.txtDesc.setText("Deskripsi  : "+desc)
         binding.imageView2.setOnClickListener {
-            val link = Intent(Intent.ACTION_VIEW, Uri.parse(linkMaps))
-            startActivity(link)
+//            val link = Intent(Intent.ACTION_VIEW, Uri.parse(linkMaps))
+//            startActivity(link)
+            val intent = Intent(this, MapsActivity::class.java)
+            intent.putExtra("linkMaps",linkMaps)
+            startActivity(intent)
         }
 
         binding.btnNomorHp.setOnClickListener {
